@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/Demo/PixelsandsEffect/_Scenes/20190808.unity
+  isLoaded: 1
+  isActive: 1

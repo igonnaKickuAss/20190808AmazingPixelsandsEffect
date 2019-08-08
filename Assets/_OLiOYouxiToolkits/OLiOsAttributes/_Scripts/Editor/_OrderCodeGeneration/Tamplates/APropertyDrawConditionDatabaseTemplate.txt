@@ -1,0 +1,31 @@
+﻿// 这是自动生成的类
+
+using System;
+using System.Collections.Generic;
+
+namespace OLiOYouxiAttributes.Editor
+{
+    static public class __classname__
+    {
+        static private  Dictionary<Type, APropertyDrawCondition> drawConditionsByAttributeType;
+
+        static __classname__()
+        {
+            drawConditionsByAttributeType = new Dictionary<Type, APropertyDrawCondition>();
+            __entries__
+        }
+
+        static public APropertyDrawCondition GetDrawConditionForAttribute(Type attributeType)
+        {
+            APropertyDrawCondition drawCondition;
+            if (drawConditionsByAttributeType.TryGetValue(attributeType, out drawCondition))
+            {
+                return drawCondition;
+            }
+            else
+            {
+                return null;
+            }
+        }
+    }
+}

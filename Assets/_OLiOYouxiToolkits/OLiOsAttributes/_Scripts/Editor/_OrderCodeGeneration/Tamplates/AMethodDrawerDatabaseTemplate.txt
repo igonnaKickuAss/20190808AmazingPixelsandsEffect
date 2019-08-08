@@ -1,0 +1,31 @@
+﻿// 这是自动生成的类
+
+using System;
+using System.Collections.Generic;
+
+namespace OLiOYouxiAttributes.Editor
+{
+    static public class __classname__
+    {
+        static private  Dictionary<Type, AMethodDrawer> drawersByAttributeType;
+
+        static __classname__()
+        {
+            drawersByAttributeType = new Dictionary<Type, AMethodDrawer>();
+            __entries__
+        }
+
+        static public AMethodDrawer GetDrawerForAttribute(Type attributeType)
+        {
+            AMethodDrawer drawer;
+            if (drawersByAttributeType.TryGetValue(attributeType, out drawer))
+            {
+                return drawer;
+            }
+            else
+            {
+                return null;
+            }
+        }
+    }
+}

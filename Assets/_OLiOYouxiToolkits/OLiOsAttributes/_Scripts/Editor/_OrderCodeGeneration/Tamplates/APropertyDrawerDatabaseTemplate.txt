@@ -1,0 +1,39 @@
+﻿// 这是自动生成的类
+
+using System;
+using System.Collections.Generic;
+
+namespace OLiOYouxiAttributes.Editor
+{
+    static public class __classname__
+    {
+        static private  Dictionary<Type, APropertyDrawer> drawersByAttributeType;
+
+        static __classname__()
+        {
+            drawersByAttributeType = new Dictionary<Type, APropertyDrawer>();
+            __entries__
+        }
+
+        static public APropertyDrawer GetDrawerForAttribute(Type attributeType)
+        {
+            APropertyDrawer drawer;
+            if (drawersByAttributeType.TryGetValue(attributeType, out drawer))
+            {
+                return drawer;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        static public void ClearCache()
+        {
+            foreach (var kvp in drawersByAttributeType)
+            {
+                kvp.Value.ClearCache();
+            }
+        }
+    }
+}

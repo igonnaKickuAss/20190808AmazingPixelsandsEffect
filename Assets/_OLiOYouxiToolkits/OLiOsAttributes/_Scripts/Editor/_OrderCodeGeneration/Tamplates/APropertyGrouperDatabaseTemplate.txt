@@ -1,0 +1,31 @@
+﻿// 这是自动生成的类
+
+using System;
+using System.Collections.Generic;
+
+namespace OLiOYouxiAttributes.Editor
+{
+    static public class __classname__
+    {
+        static private  Dictionary<Type, APropertyGrouper> groupersByAttributeType;
+
+        static __classname__()
+        {
+            groupersByAttributeType = new Dictionary<Type, APropertyGrouper>();
+            __entries__
+        }
+
+        static public APropertyGrouper GetGrouperForAttribute(Type attributeType)
+        {
+            APropertyGrouper grouper;
+            if (groupersByAttributeType.TryGetValue(attributeType, out grouper))
+            {
+                return grouper;
+            }
+            else
+            {
+                return null;
+            }
+        }
+    }
+}

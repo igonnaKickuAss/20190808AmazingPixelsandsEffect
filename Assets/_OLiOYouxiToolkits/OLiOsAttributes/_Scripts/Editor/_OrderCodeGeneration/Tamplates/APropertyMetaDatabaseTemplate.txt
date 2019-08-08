@@ -1,0 +1,31 @@
+﻿// 这是自动生成的类
+
+using System;
+using System.Collections.Generic;
+
+namespace OLiOYouxiAttributes.Editor
+{
+    static public class __classname__
+    {
+        static private  Dictionary<Type, APropertyMeta> metasByAttributeType;
+
+        static __classname__()
+        {
+            metasByAttributeType = new Dictionary<Type, APropertyMeta>();
+            __entries__
+        }
+
+        static public APropertyMeta GetMetaForAttribute(Type attributeType)
+        {
+            APropertyMeta meta;
+            if (metasByAttributeType.TryGetValue(attributeType, out meta))
+            {
+                return meta;
+            }
+            else
+            {
+                return null;
+            }
+        }
+    }
+}
