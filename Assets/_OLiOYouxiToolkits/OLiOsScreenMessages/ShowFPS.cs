@@ -7,6 +7,7 @@ namespace OLiOYouxi.Toolkits
 	{
         #region -- Public Data --
         public bool isShow = false;
+        public Rect rect = new Rect(5, -25, 600, 300);
 
         #endregion
 
@@ -24,8 +25,7 @@ namespace OLiOYouxi.Toolkits
         {
             if (!isShow)
                 return;
-
-            //左上方帧数显示
+            
             if (++count > 10)
             {
                 count = 0;
@@ -33,7 +33,7 @@ namespace OLiOYouxi.Toolkits
                 fps = 1.0f / deltaTime;
             }
             string text = string.Format(" 当前每帧渲染间隔：{0:0.0} ms ({1:0.} 帧每秒)", milliSecond, fps);
-            GUILayout.Label(text);
+            GUI.Label(rect, text);
         }
         
         void Update()

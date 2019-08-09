@@ -15,5 +15,17 @@
             grey,
             green
         }
+
+        public enum BrushType : int
+        {
+            Sand = 0,
+            Water,
+            Fire,
+            Coral,
+            Rain,
+            Snow,
+            Boom,
+            Default
+        }
     }
 }

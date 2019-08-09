@@ -33,6 +33,41 @@ namespace OLiOYouxi.OSystem
                 e = (T)Enum.Parse(typeof(T), es);
 
         }
+
+        /// <summary>
+        /// 近似值比较
+        /// </summary>
+        /// <param name="c1"></param>
+        /// <param name="c2"></param>
+        /// <param name="epsilon"></param>
+        /// <returns></returns>
+        static public bool ApproxEqual(this Color c1, Color c2, float epsilon = .05f)
+        {
+            return (c1[0] - c2[0]) * (c1[0] - c2[0])
+                + (c1[1] - c2[1]) * (c1[1] - c2[1])
+                    + (c1[2] - c2[2]) * (c1[2] - c2[2])
+                    + (c1[3] - c2[3]) * (c1[3] - c2[3]) < epsilon * epsilon;
+        }
+
+        /// <summary>
+        /// 是灰色妈
+        /// </summary>
+        /// <param name="c"></param>
+        /// <returns></returns>
+        static public bool IsGrayscale(this Color c)
+        {
+            return c.r == c.g && c.r == c.b;
+        }
+
+        /// <summary>
+        /// 是蓝色吗
+        /// </summary>
+        /// <param name="c"></param>
+        /// <returns></returns>
+        static public bool IsBluescale(this Color c)
+        {
+            return (c.r * 255 == 154 && c.g * 255 == 190 && c.b * 255 == 255) || c.r * 255 == 0 && c.g * 255 == 100 && c.b * 255 == 255;
+        }
     }
 }
 
