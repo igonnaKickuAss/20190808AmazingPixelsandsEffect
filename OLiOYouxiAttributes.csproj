@@ -305,6 +305,12 @@
     <Reference Include="UnityEngine.StandardEvents">
       <HintPath>C:/ProgramData/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.10/UnityEngine.StandardEvents.dll</HintPath>
     </Reference>
+    <Reference Include="20190811OLiOYouxi.OSystem.OLiOUEvents">
+      <HintPath>Assets/_Scripts/System/Plugins/20190811OLiOYouxi.OSystem.OLiOUEvents.dll</HintPath>
+    </Reference>
+    <Reference Include="20190811OLiOYouxi.OSystem.OLiOCEvents">
+      <HintPath>Assets/_Scripts/System/Plugins/20190811OLiOYouxi.OSystem.OLiOCEvents.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\_OLiOYouxiToolkits\OLiOsAttributes\_Scripts\System\_Base\OLiOYouxiAttribute.cs" />
@@ -352,6 +358,17 @@
     <None Include="Assets\_OLiOYouxiToolkits\OLiOsAttributes\_Scripts\Editor\_OrderCodeGeneration\Tamplates\APropertyMetaDatabaseTemplate.txt" />
     <None Include="Assets\_OLiOYouxiToolkits\OLiOsAttributes\_Scripts\Editor\_OrderCodeGeneration\Tamplates\APropertyValidatorDatabaseTemplate.txt" />
     <None Include="Assets\_OLiOYouxiToolkits\OLiOsAttributes\_Scripts\System\OLiOYouxiAttributes.asmdef" />
+    <None Include="Assets\_Scripts\Shaders\DiffuseHalfLambertPixelShader.shader" />
+    <None Include="Assets\_Scripts\Shaders\Diffuse_AddShadow.shader" />
+    <None Include="Assets\_Scripts\Shaders\Low_ForwardRendering_Shader.shader" />
+    <None Include="Assets\_Scripts\Shaders\Low_World_ForwardRendering_Shader.shader" />
+    <None Include="Assets\_Scripts\Shaders\ShadowCaster_Shader.shader" />
+    <None Include="Assets\_Scripts\Shaders\ShadowReciver_Shader.shader" />
+    <None Include="Assets\_Scripts\Shaders\Specular_Diffuse_Bump_BlinnPhongHalfLambert_Tangent_Pixel_Shader.shader" />
+    <None Include="Assets\_Scripts\Shaders\Specular_Diffuse_Bump_BlinnPhongHalfLambert_World_Pixel_Shader.shader" />
+    <None Include="Assets\_Scripts\Shaders\Texture2D_GPU.compute" />
+    <None Include="Assets\_Scripts\System\Plugins\20190811OLiOYouxi.OSystem.OLiOCEvents.xml" />
+    <None Include="Assets\_Scripts\System\Plugins\20190811OLiOYouxi.OSystem.OLiOUEvents.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

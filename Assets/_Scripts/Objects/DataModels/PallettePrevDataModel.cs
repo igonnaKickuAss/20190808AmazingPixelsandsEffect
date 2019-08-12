@@ -15,6 +15,7 @@ namespace OLiOYouxi.OObjects
         public Vector2 prevRenderStartEndW { get; set; }
         public Vector2 prevRenderStartEndH { get; set; }
         public float prevPixelsPerUnit { get; set; }
+        public bool prevUseGPUTexture2D { get; set; }
         public bool prevStartWithTestPattern { get; set; }
     }
 }

@@ -76,16 +76,7 @@ namespace OLiOYouxi.OObjects
         [OLiOYouxiAttributes.BoxGroup("杂项"), OLiOYouxiAttributes.Label("摄像机：")]
         [SerializeField]
         private Camera cam = null;
-
-        [OLiOYouxiAttributes.BoxGroup("杂项"), OLiOYouxiAttributes.Label("使用GPU：")]
-        [SerializeField]
-        private bool useGPUTexture2D = false;
-
-        [OLiOYouxiAttributes.BoxGroup("杂项")]
-        [OLiOYouxiAttributes.ShowIf("useGPUTexture2D")]
-        [SerializeField]
-        private ComputeShader computeShader = null;
-
+        
         //default frame
         [OLiOYouxiAttributes.BoxGroup("地图"), OLiOYouxiAttributes.Label("使用地图：")]
         [SerializeField]
@@ -102,6 +93,7 @@ namespace OLiOYouxi.OObjects
 
         //CPU & GPU
         private CPUVersion cpu = null;
+        private GPUVersion gpu = null;
 
         #endregion
 
@@ -163,13 +155,6 @@ namespace OLiOYouxi.OObjects
         #endregion
 
         #region -- MONO APIMethods --
-        /// <summary>
-        /// 程序从这里开始
-        /// </summary>
-        private void Start()
-        {
-        }
-
         private void OnEnable()
         {
             InitData();
@@ -265,12 +250,12 @@ namespace OLiOYouxi.OObjects
                             if (!palletteData.tileNeedsApply[col, row])
                                 continue;
 
-                            //if (useGPUTexture2D)
-                            //    tileTexsGPU[col, row].Apply();    //GPU
-                            //else
-                            //    palletteData.tileTexs[col, row].Apply();   //CPU
+                            if (pallettePrevData.prevUseGPUTexture2D)
+                                palletteData.tileTexsGPU[col, row].Apply();    //GPU
+                            else
+                                palletteData.tileTexs[col, row].Apply();   //CPU
 
-                            palletteData.tileTexs[col, row].Apply();   //CPU
+                            //palletteData.tileTexs[col, row].Apply();   //CPU
 
                             palletteData.tileNeedsApply[col, row] = false;
 
@@ -314,6 +299,7 @@ namespace OLiOYouxi.OObjects
             palletteData.tileObjs = new GameObject[pallettePrevData.prevTilesCols, pallettePrevData.prevTilesRows];
             palletteData.tileMats = new Material[pallettePrevData.prevTilesCols, pallettePrevData.prevTilesRows];
             palletteData.tileTexs = new Texture2D[pallettePrevData.prevTilesCols, pallettePrevData.prevTilesRows];
+            palletteData.tileTexsGPU = new Texture2D_GPU[pallettePrevData.prevTilesCols, pallettePrevData.prevTilesRows];
             palletteData.tileNeedsApply = new bool[pallettePrevData.prevTilesCols, pallettePrevData.prevTilesRows];
 
             for (int num = 0, x = 0, y = 0; num < palletteData.tileObjs.Length; num++, x++)
@@ -338,7 +324,12 @@ namespace OLiOYouxi.OObjects
 
                 palletteData.tileObjs[x, y] = go;
                 palletteData.tileMats[x, y] = go.GetComponent<Renderer>().sharedMaterial;            //此处稍加注意！！！！！！
+                //CPU
                 palletteData.tileTexs[x, y] = palletteData.tileMats[x, y].mainTexture as Texture2D;
+                //GPU
+                palletteData.tileTexsGPU[x, y] = new Texture2D_GPU(pallettePrevData.prevTileWidth, pallettePrevData.prevTileHeight, palletteController.GetComputeShader());
+                palletteData.tileTexsGPU[x, y].texture2D = palletteData.tileMats[x, y].mainTexture as Texture2D;
+                palletteData.tileTexsGPU[x, y].SetColorArr();
 
                 palletteData.tileNeedsApply[x, y] = false;
             }
@@ -369,6 +360,7 @@ namespace OLiOYouxi.OObjects
         private void InitDrawer()
         {
             cpu = new CPUVersion();
+            gpu = new GPUVersion();
         }
 
         #endregion
@@ -478,12 +470,12 @@ namespace OLiOYouxi.OObjects
             tx = x % pallettePrevData.prevTileWidth; ty = y % pallettePrevData.prevTileHeight;
 
 
-            //if (useGPUTexture2D)
-            //    return tileTexsGPU[col, row].GetPixel(tx, ty);      //GPU
-            //else
-            //    return palletteData.tileTexs[col, row].GetPixel(tx, ty);  //CPU
+            if (pallettePrevData.prevUseGPUTexture2D)
+                return palletteData.tileTexsGPU[col, row].GetPixel(tx, ty);      //GPU
+            else
+                return palletteData.tileTexs[col, row].GetPixel(tx, ty);  //CPU
 
-            return palletteData.tileTexs[col, row].GetPixel(tx, ty);  //CPU
+            //return palletteData.tileTexs[col, row].GetPixel(tx, ty);  //CPU
 
         }
 
@@ -606,10 +598,20 @@ namespace OLiOYouxi.OObjects
         #region -- Private APIMethods --
         private void DrawFrame(int col, int row, int width, int height)
         {
-            if (useGPUTexture2D)
+            if (pallettePrevData.prevUseGPUTexture2D)
             {
+                passData = new PassData
+                {
+                    col = col,
+                    row = row,
+                    width = width,
+                    height = height
+                };
 
+                Texture2D_GPU[,] tileTexsGPU = palletteData.tileTexsGPU;  //引用tiletexGPUss
+                gpu.DrawFrame(ref passData, ref tileTexsGPU, ref frame);
 
+                NeedApplyAtTile(col, row);  // 纹理Apply
             }
             else
             {
@@ -691,9 +693,23 @@ namespace OLiOYouxi.OObjects
             col = x / pallettePrevData.prevTileWidth;
             row = y / pallettePrevData.prevTileHeight;
 
-            if (useGPUTexture2D)
+            if (pallettePrevData.prevUseGPUTexture2D)
             {
+                passData = new PassData
+                {
+                    col = col,
+                    row = row,
+                    width = pallettePrevData.prevTileWidth,
+                    height = pallettePrevData.prevTileHeight,
+                    x = x,
+                    y = y,
+                    color = color
+                };
 
+                Texture2D_GPU[,] tileTexsGPU = palletteData.tileTexsGPU;    //引用tiletexGPUss
+                gpu.SetPixelIgnoringStacks(ref passData, ref tileTexsGPU);
+
+                NeedApplyAtTile(col, row);              //告诉他，这个位置的瓦片的纹理已经更改了，快去调用Apply()交给GPU渲染吧
             }
             else
             {
@@ -708,7 +724,7 @@ namespace OLiOYouxi.OObjects
                     color = color
                 };
 
-                Texture2D[,] tileTexs = palletteData.tileTexs;
+                Texture2D[,] tileTexs = palletteData.tileTexs;      //引用tiletexss
                 cpu.SetPixelIgnoringStacks(ref passData, ref tileTexs);
 
                 NeedApplyAtTile(col, row);              //告诉他，这个位置的瓦片的纹理已经更改了，快去调用Apply()交给GPU渲染吧
@@ -1062,4 +1078,48 @@ namespace OLiOYouxi.OObjects
 
         #endregion
     }
+
+    class GPUVersion
+    {
+        #region -- Draw APIMethods --
+        public void DrawFrame(ref PassData passData, ref Texture2D_GPU[,] tileTexsGPU, ref Texture2D frame)
+        {
+            Texture2D_GPU texGPU = tileTexsGPU[passData.col, passData.row];       //GPU
+            Color[] cs = frame.GetPixels(passData.col * passData.width, passData.row * passData.height, passData.width, passData.height);
+            if (cs != null && cs.Length != 0)
+            {
+                texGPU.SetPixels(cs);     //GPU
+            }
+            else
+            {
+                //frame某个区域没有像素那就画color.clear
+                int length = passData.width * passData.height;
+                cs = new Color[length];
+
+                for (int i = 0; i < length; i++)
+                {
+                    cs[length] = Color.clear;
+                }
+                
+                texGPU.SetPixels(cs);     //GPU
+            }
+        }
+
+        public void SetPixelIgnoringStacks(ref PassData passData, ref Texture2D_GPU[,] tileTexsGPU)
+        {
+            Texture2D_GPU texGPU = tileTexsGPU[passData.col, passData.row];     //GPU
+
+            int tx = passData.x % passData.width;
+            int ty = passData.y % passData.height;
+            
+            Color cs = texGPU.GetPixel(tx, ty);   //GPU
+
+            if (cs == passData.color) return;
+
+            texGPU.SetPixel(tx, ty, passData.color);    //GPU
+        }
+        #endregion
+    }
+
+
 }

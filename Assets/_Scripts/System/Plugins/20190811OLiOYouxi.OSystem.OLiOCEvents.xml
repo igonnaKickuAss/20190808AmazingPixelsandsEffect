@@ -1,0 +1,242 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>OLiOYouxi.OSystem.OLiOCEvents</name>
+    </assembly>
+    <members>
+        <member name="T:OLiOYouxi.OSystem.OLiOCEvents.CEvents">
+            <summary>
+            给定委托事件
+            </summary>
+        </member>
+        <member name="P:OLiOYouxi.OSystem.OLiOCEvents.CEvents.Instance">
+            <summary>
+            这是单例
+            </summary>
+        </member>
+        <member name="T:OLiOYouxi.OSystem.OLiOCEvents.CEventsManager">
+            <summary>
+            CustomEvents管理
+            1.PutIn(写入字典)
+            2.LookUp(查询字典并且执行该结果)
+            </summary>
+        </member>
+        <member name="P:OLiOYouxi.OSystem.OLiOCEvents.CEventsManager.Instance">
+            <summary>
+            这是单例
+            </summary>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOCEvents.CEventsManager.PutCEventInVoidDic">
+            <summary>
+            CEvent数据写入无返回值字典
+            </summary>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOCEvents.CEventsManager.PutCEventInVoidDic(System.String,System.Action)">
+            <summary>
+            CEvent数据写入无返回值字典
+            </summary>
+            <param name="key">键</param>
+            <param name="ve0A">无参无返回值委托</param>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOCEvents.CEventsManager.PutCEventInVoidDic``1(System.String,System.Action{``0})">
+            <summary>
+            CEvent数据写入无返回值字典
+            </summary>
+            <typeparam name="T">无返回值委托的参数T</typeparam>
+            <param name="key">键</param>
+            <param name="ve1A">无返回值委托</param>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOCEvents.CEventsManager.PutCEventInVoidDic``2(System.String,System.Action{``0,``1})">
+            <summary>
+            CEvent数据写入无返回值字典
+            </summary>
+            <typeparam name="T">无返回值委托的参数T</typeparam>
+            <typeparam name="Y">无返回值委托的参数Y</typeparam>
+            <param name="key">键</param>
+            <param name="ve2A">无返回值委托</param>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOCEvents.CEventsManager.PutCEventInVoidDic``3(System.String,System.Action{``0,``1,``2})">
+            <summary>
+            CEvent数据写入无返回值字典
+            </summary>
+            <typeparam name="T">无返回值委托的参数T</typeparam>
+            <typeparam name="Y">无返回值委托的参数Y</typeparam>
+            <typeparam name="U">无返回值委托的参数U</typeparam>
+            <param name="key">键</param>
+            <param name="ve3A">无返回值委托</param>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOCEvents.CEventsManager.LookUpCEventToVoidDic">
+            <summary>
+            CEvent数据在无返回值字典中查询
+            </summary>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOCEvents.CEventsManager.LookUpCEventToVoidDic(System.String)">
+            <summary>
+            CEvent数据在无返回值字典中查询
+            </summary>
+            <param name="key">键</param>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOCEvents.CEventsManager.LookUpCEventToVoidDic``1(System.String,``0)">
+            <summary>
+            CEvent数据在无返回值字典中查询
+            </summary>
+            <typeparam name="T">无返回值委托的参数一类型</typeparam>
+            <param name="key">键</param>
+            <param name="obj0">无返回值委托的参数一</param>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOCEvents.CEventsManager.LookUpCEventToVoidDic``2(System.String,``0,``1)">
+            <summary>
+            CEvent数据在无返回值字典中查询
+            </summary>
+            <typeparam name="T">无返回值委托的参数一类型</typeparam>
+            <typeparam name="Y">无返回值委托的参数二类型</typeparam>
+            <param name="key">键</param>
+            <param name="obj0">无返回值委托的参数一</param>
+            <param name="obj1">无返回值委托的参数二</param>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOCEvents.CEventsManager.LookUpCEventToVoidDic``3(System.String,``0,``1,``2)">
+            <summary>
+            CEvent数据在无返回值字典中查询
+            </summary>
+            <typeparam name="T">无返回值委托的参数一类型</typeparam>
+            <typeparam name="Y">无返回值委托的参数二类型</typeparam>
+            <typeparam name="U">无返回值委托的参数三类型</typeparam>
+            <param name="key">键</param>
+            <param name="obj0">无返回值委托的参数一</param>
+            <param name="obj1">无返回值委托的参数二</param>
+            <param name="obj2">无返回值委托的参数三</param>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOCEvents.CEventsManager.PutCEventInObjectDic">
+            <summary>
+            CEvent数据写入有返回值字典
+            </summary>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOCEvents.CEventsManager.PutCEventInObjectDic(System.String,System.Func{System.Object})">
+            <summary>
+            CEvent数据写入有返回值字典
+            </summary>
+            <param name="key">键</param>
+            <param name="oe0F">无参有返回值委托</param>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOCEvents.CEventsManager.PutCEventInObjectDic``1(System.String,System.Func{``0,System.Object})">
+            <summary>
+            CEvent数据写入有返回值字典
+            </summary>
+            <typeparam name="T">有返回值委托的参数T</typeparam>
+            <param name="key">键</param>
+            <param name="oe1F">有返回值委托</param>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOCEvents.CEventsManager.PutCEventInObjectDic``2(System.String,System.Func{``0,``1,System.Object})">
+            <summary>
+            CEvent数据写入有返回值字典
+            </summary>
+            <typeparam name="T">有返回值委托的参数T</typeparam>
+            <typeparam name="Y">有返回值委托的参数Y</typeparam>
+            <param name="key">键</param>
+            <param name="oe2F">有返回值委托</param>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOCEvents.CEventsManager.PutCEventInObjectDic``3(System.String,System.Func{``0,``1,``2,System.Object})">
+            <summary>
+            CEvent数据写入有返回值字典
+            </summary>
+            <typeparam name="T">有返回值委托的参数T</typeparam>
+            <typeparam name="Y">有返回值委托的参数Y</typeparam>
+            <typeparam name="U">有返回值委托的参数U</typeparam>
+            <param name="key">键</param>
+            <param name="oe3F">有返回值委托</param>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOCEvents.CEventsManager.LookUpCEventToObjectDic">
+            <summary>
+            CEvent数据在有返回值字典中查询
+            </summary>
+            <returns>object</returns>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOCEvents.CEventsManager.LookUpCEventToObjectDic(System.String)">
+            <summary>
+            CEvent数据在有返回值字典中查询
+            </summary>
+            <param name="key">键</param>
+            <returns>object</returns>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOCEvents.CEventsManager.LookUpCEventToObjectDic``1(System.String,``0)">
+            <summary>
+            CEvent数据在有返回值字典中查询
+            </summary>
+            <typeparam name="T">有返回值委托的参数一类型</typeparam>
+            <param name="key">键</param>
+            <param name="obj0">有返回值委托的参数一</param>
+            <returns>object</returns>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOCEvents.CEventsManager.LookUpCEventToObjectDic``2(System.String,``0,``1)">
+            <summary>
+            CEvent数据在有返回值字典中查询
+            </summary>
+            <typeparam name="T">有返回值委托的参数一类型</typeparam>
+            <typeparam name="Y">有返回值委托的参数二类型</typeparam>
+            <param name="key">键</param>
+            <param name="obj0">有返回值委托的参数一</param>
+            <param name="obj1">有返回值委托的参数二</param>
+            <returns>object</returns>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOCEvents.CEventsManager.LookUpCEventToObjectDic``3(System.String,``0,``1,``2)">
+            <summary>
+            CEvent数据在有返回值字典中查询
+            </summary>
+            <typeparam name="T">有返回值委托的参数一类型</typeparam>
+            <typeparam name="Y">有返回值委托的参数二类型</typeparam>
+            <typeparam name="U">有返回值委托的参数三类型</typeparam>
+            <param name="key">键</param>
+            <param name="obj0">有返回值委托的参数一</param>
+            <param name="obj1">有返回值委托的参数二</param>
+            <param name="obj2">有返回值委托的参数三</param>
+            <returns>object</returns>
+        </member>
+        <member name="T:OLiOYouxi.OSystem.OLiOCEvents.CEventsStringDictionary">
+            <summary>
+            给定无参字典
+            </summary>
+        </member>
+        <member name="P:OLiOYouxi.OSystem.OLiOCEvents.CEventsStringDictionary.Instance">
+            <summary>
+            这是单例
+            </summary>
+        </member>
+        <member name="T:OLiOYouxi.OSystem.OLiOCEvents.CEventsStringDictionary`1">
+            <summary>
+            给定单参字典
+            </summary>
+        </member>
+        <member name="P:OLiOYouxi.OSystem.OLiOCEvents.CEventsStringDictionary`1.Instance">
+            <summary>
+            这是单例
+            </summary>
+        </member>
+        <member name="T:OLiOYouxi.OSystem.OLiOCEvents.CEventsStringDictionary`2">
+            <summary>
+            给定双参字典
+            </summary>
+        </member>
+        <member name="P:OLiOYouxi.OSystem.OLiOCEvents.CEventsStringDictionary`2.Instance">
+            <summary>
+            这是单例
+            </summary>
+        </member>
+        <member name="T:OLiOYouxi.OSystem.OLiOCEvents.CEventsStringDictionary`3">
+            <summary>
+            给定三参字典
+            </summary>
+        </member>
+        <member name="P:OLiOYouxi.OSystem.OLiOCEvents.CEventsStringDictionary`3.Instance">
+            <summary>
+            这是单例
+            </summary>
+        </member>
+        <member name="T:OLiOYouxi.OSystem.OLiOCEvents.CEventsStringTriggers">
+            <summary>
+            CustomEvents触发器。
+            1.可以注册(Register, RegisterObject)
+            2.可以调用(Invoke, InvokeObject)
+            </summary>
+        </member>
+    </members>
+</doc>

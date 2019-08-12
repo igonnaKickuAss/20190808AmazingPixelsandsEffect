@@ -23,7 +23,7 @@ namespace OLiOYouxi.OObjects
                     pallatteController = FindObjectOfType<PalletteController>() as PalletteController;
                     if (!pallatteController)
                     {
-                        DebuggerFather.instance.ToDebugLogErr("你得在Scene中激活一个携带PallatteController组件的GameObject。", EnumCentre.ColorName.red);
+                        DebuggerFather.instance.ToDebugLogErr("你得在Scene中激活一个携带PalletteController组件的GameObject。", EnumCentre.ColorName.red);
                     }
                     else
                     {
@@ -40,6 +40,7 @@ namespace OLiOYouxi.OObjects
             {
                 tileObjs = new GameObject[tilesCols, tilesRows],
                 tileTexs = new Texture2D[tilesCols, tilesRows],
+                tileTexsGPU = new Texture2D_GPU[tilesCols, tilesRows],
                 tileMats = new Material[tilesCols, tilesRows],
                 tileNeedsApply = new bool[tilesCols, tilesRows]
             };
@@ -55,6 +56,7 @@ namespace OLiOYouxi.OObjects
                 prevRenderStartEndW = renderStartEndH,
                 prevRenderStartEndH = renderStartEndH,
                 prevPixelsPerUnit = pixelsPerUnit,
+                prevUseGPUTexture2D = useGPUTexture2D,
                 prevStartWithTestPattern = startWithPattern
             };
         }
@@ -111,6 +113,16 @@ namespace OLiOYouxi.OObjects
         [OLiOYouxiAttributes.MinValue(1)]
         [SerializeField]
         private float pixelsPerUnit = 80f;
+        
+        [OLiOYouxiAttributes.BoxGroup("杂项"), OLiOYouxiAttributes.Label("使用GPU：")]
+        [OLiOYouxiAttributes.OnValueChanged("UpdatePrevData")]
+        [SerializeField]
+        private bool useGPUTexture2D = false;
+
+        [OLiOYouxiAttributes.BoxGroup("杂项")]
+        [OLiOYouxiAttributes.ShowIf("useGPUTexture2D")]
+        [SerializeField]
+        private ComputeShader computeShader = null;
 
         [OLiOYouxiAttributes.BoxGroup("杂项"), OLiOYouxiAttributes.Label("开启模板：")]
         [SerializeField]
@@ -161,6 +173,13 @@ namespace OLiOYouxi.OObjects
             tileHeight = Mathf.CeilToInt(totalHeight / tilesRows);
         }
 
+        void UpdatePrevData()
+        {
+            if (!Application.isPlaying)
+                return;
+            palletePrevData.prevUseGPUTexture2D = useGPUTexture2D;
+        }
+
         #endregion
 
         #region -- MONO APIMethods --
@@ -186,6 +205,7 @@ namespace OLiOYouxi.OObjects
             {
                 this.palleteData.tileObjs = new GameObject[cols, rows];
                 this.palleteData.tileTexs = new Texture2D[cols, rows];
+                this.palleteData.tileTexsGPU = new Texture2D_GPU[cols, rows];
                 this.palleteData.tileMats = new Material[cols, rows];
                 this.palleteData.tileNeedsApply = new bool[cols, rows];
             }
@@ -217,9 +237,15 @@ namespace OLiOYouxi.OObjects
                     material.mainTexture = texture2D;
 
                     //赋值给tileTexs
+                    //赋值给tileTexsGPU
                     if (Application.isPlaying)
                     {
+                        //CPU
                         this.palleteData.tileTexs[col, row] = texture2D;
+                        //GPU
+                        this.palleteData.tileTexsGPU[col, row] = new Texture2D_GPU(tileWidth, tileHeight, computeShader);
+                        this.palleteData.tileTexsGPU[col, row].texture2D = texture2D;
+                        this.palleteData.tileTexsGPU[col, row].SetColorArr();
                     }
 
                     //是否给Tile放置模板
@@ -244,6 +270,7 @@ namespace OLiOYouxi.OObjects
                 this.palletePrevData.prevTotalWidth = totalWidth;
                 this.palletePrevData.prevTotalHeight = totalHeight;
                 this.palletePrevData.prevPixelsPerUnit = pixelsPerUnit;
+                this.palletePrevData.prevUseGPUTexture2D = useGPUTexture2D;
                 this.palletePrevData.prevStartWithTestPattern = startWithPattern;
             }
 
@@ -257,12 +284,18 @@ namespace OLiOYouxi.OObjects
             {
                 this.palleteData.tileObjs = null;
                 this.palleteData.tileTexs = null;
+                this.palleteData.tileTexsGPU = null;
                 this.palleteData.tileMats = null;
                 this.palleteData.tileNeedsApply = null;
                 Resources.UnloadUnusedAssets();
             }
             transform.ClearChildrenImmediately();
             return true;
+        }
+
+        public ComputeShader GetComputeShader()
+        {
+            return this.computeShader;
         }
 
         #endregion

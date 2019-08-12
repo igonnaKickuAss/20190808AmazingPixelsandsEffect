@@ -1,0 +1,417 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>OLiOYouxi.OSystem.OLiOUEvents</name>
+    </assembly>
+    <members>
+        <member name="T:OLiOYouxi.OSystem.OLiOUEvents.UEventsManager">
+            <summary>
+            UnityEvents管理
+            1.PutIn(写入字典)
+            2.LookUp(查询字典并且执行该结果)
+            </summary>
+        </member>
+        <member name="P:OLiOYouxi.OSystem.OLiOUEvents.UEventsManager.Instance">
+            <summary>
+            这是单例
+            </summary>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOUEvents.UEventsManager.PutUEventInVoidDic(OLiOYouxi.OSystem.OLiOUEvents.UEventsBase.VoidEvent)">
+            <summary>
+            UEvent数据写入无返回值字典
+            </summary>
+            <param name="void">UEvent</param>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOUEvents.UEventsManager.PutUEventInVoidDic(OLiOYouxi.OSystem.OLiOUEvents.UEventsBase.VoidEvent,System.String)">
+            <summary>
+            UEvent数据写入无返回值字典
+            </summary>
+            <param name="void">UEvent</param>
+            <param name="key">键</param>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOUEvents.UEventsManager.PutUEventInVoidDic(OLiOYouxi.OSystem.OLiOUEvents.UEventsBase.VoidEvent,System.String@)">
+            <summary>
+            UEvent数据写入无返回值字典
+            </summary>
+            <param name="void">UEvent</param>
+            <param name="key">返回键</param>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOUEvents.UEventsManager.PutUEventInVoidDic(OLiOYouxi.OSystem.OLiOUEvents.UEventsBase.StringEvent)">
+            <summary>
+            UEvent数据写入无返回值字典
+            </summary>
+            <param name="string">UEvent</param>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOUEvents.UEventsManager.PutUEventInVoidDic(OLiOYouxi.OSystem.OLiOUEvents.UEventsBase.StringEvent,System.String@)">
+            <summary>
+            UEvent数据写入无返回值字典
+            </summary>
+            <param name="string">UEvent</param>
+            <param name="key">返回键</param>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOUEvents.UEventsManager.PutUEventInVoidDic(OLiOYouxi.OSystem.OLiOUEvents.UEventsBase.StringEvent,System.String)">
+            <summary>
+            UEvent数据写入无返回值字典
+            </summary>
+            <param name="string">UEvent</param>
+            <param name="key">键</param>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOUEvents.UEventsManager.PutUEventInVoidDic(OLiOYouxi.OSystem.OLiOUEvents.UEventsBase.BoolEvent)">
+            <summary>
+            UEvent数据写入无返回值字典
+            </summary>
+            <param name="bool">UEvent</param>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOUEvents.UEventsManager.PutUEventInVoidDic(OLiOYouxi.OSystem.OLiOUEvents.UEventsBase.BoolEvent,System.String@)">
+            <summary>
+            UEvent数据写入无返回值字典
+            </summary>
+            <param name="bool">UEvent</param>
+            <param name="key">返回键</param>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOUEvents.UEventsManager.PutUEventInVoidDic(OLiOYouxi.OSystem.OLiOUEvents.UEventsBase.BoolEvent,System.String)">
+            <summary>
+            UEvent数据写入无返回值字典
+            </summary>
+            <param name="bool">UEvent</param>
+            <param name="key">键</param>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOUEvents.UEventsManager.PutUEventInVoidDic(OLiOYouxi.OSystem.OLiOUEvents.UEventsBase.FloatEvent)">
+            <summary>
+            UEvent数据写入无返回值字典
+            </summary>
+            <param name="float">UEvent</param>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOUEvents.UEventsManager.PutUEventInVoidDic(OLiOYouxi.OSystem.OLiOUEvents.UEventsBase.FloatEvent,System.String@)">
+            <summary>
+            UEvent数据写入无返回值字典
+            </summary>
+            <param name="float">UEvent</param>
+            <param name="key">返回键</param>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOUEvents.UEventsManager.PutUEventInVoidDic(OLiOYouxi.OSystem.OLiOUEvents.UEventsBase.FloatEvent,System.String)">
+            <summary>
+            UEvent数据写入无返回值字典
+            </summary>
+            <param name="float">UEvent</param>
+            <param name="key">键</param>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOUEvents.UEventsManager.PutUEventInVoidDic(OLiOYouxi.OSystem.OLiOUEvents.UEventsBase.IntEvent)">
+            <summary>
+            UEvent数据写入无返回值字典
+            </summary>
+            <param name="int">UEvent</param>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOUEvents.UEventsManager.PutUEventInVoidDic(OLiOYouxi.OSystem.OLiOUEvents.UEventsBase.IntEvent,System.String@)">
+            <summary>
+            UEvent数据写入无返回值字典
+            </summary>
+            <param name="int">UEvent</param>
+            <param name="key">返回键</param>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOUEvents.UEventsManager.PutUEventInVoidDic(OLiOYouxi.OSystem.OLiOUEvents.UEventsBase.IntEvent,System.String)">
+            <summary>
+            UEvent数据写入无返回值字典
+            </summary>
+            <param name="int">UEvent</param>
+            <param name="key">键</param>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOUEvents.UEventsManager.PutUEventInVoidDic(OLiOYouxi.OSystem.OLiOUEvents.UEventsBase.ObjectEvent)">
+            <summary>
+            UEvent数据写入无返回值字典
+            </summary>
+            <param name="object">UEvent</param>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOUEvents.UEventsManager.PutUEventInVoidDic(OLiOYouxi.OSystem.OLiOUEvents.UEventsBase.ObjectEvent,System.String@)">
+            <summary>
+            UEvent数据写入无返回值字典
+            </summary>
+            <param name="object">UEvent</param>
+            <param name="key">返回键</param>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOUEvents.UEventsManager.PutUEventInVoidDic(OLiOYouxi.OSystem.OLiOUEvents.UEventsBase.ObjectEvent,System.String)">
+            <summary>
+            UEvent数据写入无返回值字典
+            </summary>
+            <param name="object">UEvent</param>
+            <param name="key">键</param>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOUEvents.UEventsManager.PutUEventInVoidDic(OLiOYouxi.OSystem.OLiOUEvents.UEventsBase.TransformEvent)">
+            <summary>
+            UEvent数据写入无返回值字典
+            </summary>
+            <param name="transform">UEvent</param>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOUEvents.UEventsManager.PutUEventInVoidDic(OLiOYouxi.OSystem.OLiOUEvents.UEventsBase.TransformEvent,System.String@)">
+            <summary>
+            UEvent数据写入无返回值字典
+            </summary>
+            <param name="transform">UEvent</param>
+            <param name="key">返回键</param>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOUEvents.UEventsManager.PutUEventInVoidDic(OLiOYouxi.OSystem.OLiOUEvents.UEventsBase.TransformEvent,System.String)">
+            <summary>
+            UEvent数据写入无返回值字典
+            </summary>
+            <param name="transform">UEvent</param>
+            <param name="key">键</param>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOUEvents.UEventsManager.PutUEventInVoidDic(OLiOYouxi.OSystem.OLiOUEvents.UEventsBase.TransformTransformEvent)">
+            <summary>
+            UEvent数据写入无返回值字典
+            </summary>
+            <param name="transformtransform">UEvent</param>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOUEvents.UEventsManager.PutUEventInVoidDic(OLiOYouxi.OSystem.OLiOUEvents.UEventsBase.TransformTransformEvent,System.String@)">
+            <summary>
+            UEvent数据写入无返回值字典
+            </summary>
+            <param name="transformtransform">UEvent</param>
+            <param name="key">返回键</param>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOUEvents.UEventsManager.PutUEventInVoidDic(OLiOYouxi.OSystem.OLiOUEvents.UEventsBase.TransformTransformEvent,System.String)">
+            <summary>
+            UEvent数据写入无返回值字典
+            </summary>
+            <param name="transformtransform">UEvent</param>
+            <param name="key">键</param>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOUEvents.UEventsManager.PutUEventInVoidDic(OLiOYouxi.OSystem.OLiOUEvents.UEventsBase.OLiOEvent)">
+            <summary>
+            UEvent数据写入无返回值字典
+            </summary>
+            <param name="event">UEvent</param>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOUEvents.UEventsManager.PutUEventInVoidDic(OLiOYouxi.OSystem.OLiOUEvents.UEventsBase.OLiOEvent,System.String@)">
+            <summary>
+            UEvent数据写入无返回值字典
+            </summary>
+            <param name="event">UEvent</param>
+            <param name="key">返回键</param>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOUEvents.UEventsManager.PutUEventInVoidDic(OLiOYouxi.OSystem.OLiOUEvents.UEventsBase.OLiOEvent,System.String)">
+            <summary>
+            UEvent数据写入无返回值字典
+            </summary>
+            <param name="event">UEvent</param>
+            <param name="key">键</param>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOUEvents.UEventsManager.PutUEventInVoidDic``1(OLiOYouxi.OSystem.OLiOUEvents.UEventsBase.OLiOEvent{``0})">
+            <summary>
+            UEvent数据写入无返回值字典
+            </summary>
+            <typeparam name="T">无返回值委托的参数T</typeparam>
+            <param name="eventT">UEvent</param>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOUEvents.UEventsManager.PutUEventInVoidDic``1(OLiOYouxi.OSystem.OLiOUEvents.UEventsBase.OLiOEvent{``0},System.String@)">
+            <summary>
+            UEvent数据写入无返回值字典
+            </summary>
+            <param name="event">UEvent</param>
+            <param name="key">返回键</param>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOUEvents.UEventsManager.PutUEventInVoidDic``1(OLiOYouxi.OSystem.OLiOUEvents.UEventsBase.OLiOEvent{``0},System.String)">
+            <summary>
+            UEvent数据写入无返回值字典
+            </summary>
+            <typeparam name="T">无返回值委托的参数T</typeparam>
+            <param name="event">UEvent</param>
+            <param name="key">键</param>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOUEvents.UEventsManager.PutUEventInVoidDic``2(OLiOYouxi.OSystem.OLiOUEvents.UEventsBase.OLiOEvent{``0,``1})">
+            <summary>
+            UEvent数据写入无返回值字典
+            </summary>
+            <typeparam name="T">无返回值委托的参数T</typeparam>
+            <typeparam name="Y">无返回值委托的参数Y</typeparam>
+            <param name="eventTY">UEvent</param>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOUEvents.UEventsManager.PutUEventInVoidDic``2(OLiOYouxi.OSystem.OLiOUEvents.UEventsBase.OLiOEvent{``0,``1},System.String@)">
+            <summary>
+            UEvent数据写入无返回值字典
+            </summary>
+            <param name="event">UEvent</param>
+            <param name="key">返回键</param>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOUEvents.UEventsManager.PutUEventInVoidDic``2(OLiOYouxi.OSystem.OLiOUEvents.UEventsBase.OLiOEvent{``0,``1},System.String)">
+            <summary>
+            UEvent数据写入无返回值字典
+            </summary>
+            <typeparam name="T">无返回值委托的参数T</typeparam>
+            <typeparam name="Y">无返回值委托的参数Y</typeparam>
+            <param name="eventTY">UEvent</param>
+            <param name="key">键</param>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOUEvents.UEventsManager.PutUEventInVoidDic``3(OLiOYouxi.OSystem.OLiOUEvents.UEventsBase.OLiOEvent{``0,``1,``2})">
+            <summary>
+            UEvent数据写入无返回值字典
+            </summary>
+            <typeparam name="T">无返回值委托的参数T</typeparam>
+            <typeparam name="Y">无返回值委托的参数Y</typeparam>
+            <typeparam name="U">无返回值委托的参数U</typeparam>
+            <param name="eventTYU">UEvent</param>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOUEvents.UEventsManager.PutUEventInVoidDic``3(OLiOYouxi.OSystem.OLiOUEvents.UEventsBase.OLiOEvent{``0,``1,``2},System.String@)">
+            <summary>
+            UEvent数据写入无返回值字典
+            </summary>
+            <param name="event">UEvent</param>
+            <param name="key">返回键</param>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOUEvents.UEventsManager.PutUEventInVoidDic``3(OLiOYouxi.OSystem.OLiOUEvents.UEventsBase.OLiOEvent{``0,``1,``2},System.String)">
+            <summary>
+            UEvent数据写入无返回值字典
+            </summary>
+            <typeparam name="T">无返回值委托的参数T</typeparam>
+            <typeparam name="Y">无返回值委托的参数Y</typeparam>
+            <typeparam name="U">无返回值委托的参数U</typeparam>
+            <param name="eventTYU">UEvent</param>
+            <param name="key">键</param>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOUEvents.UEventsManager.PutUEventInVoidDic``4(OLiOYouxi.OSystem.OLiOUEvents.UEventsBase.OLiOEvent{``0,``1,``2,``3})">
+            <summary>
+            UEvent数据写入无返回值字典
+            </summary>
+            <typeparam name="T">无返回值委托的参数T</typeparam>
+            <typeparam name="Y">无返回值委托的参数Y</typeparam>
+            <typeparam name="U">无返回值委托的参数U</typeparam>
+            <typeparam name="I">无返回值委托的参数I</typeparam>
+            <param name="eventTYUI">UEvent</param>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOUEvents.UEventsManager.PutUEventInVoidDic``4(OLiOYouxi.OSystem.OLiOUEvents.UEventsBase.OLiOEvent{``0,``1,``2,``3},System.String@)">
+            <summary>
+            UEvent数据写入无返回值字典
+            </summary>
+            <param name="event">UEvent</param>
+            <param name="key">返回键</param>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOUEvents.UEventsManager.PutUEventInVoidDic``4(OLiOYouxi.OSystem.OLiOUEvents.UEventsBase.OLiOEvent{``0,``1,``2,``3},System.String)">
+            <summary>
+            UEvent数据写入无返回值字典
+            </summary>
+            <typeparam name="T">无返回值委托的参数T</typeparam>
+            <typeparam name="Y">无返回值委托的参数Y</typeparam>
+            <typeparam name="U">无返回值委托的参数U</typeparam>
+            <typeparam name="I">无返回值委托的参数I</typeparam>
+            <param name="eventTYUI">UEvent</param>
+            <param name="key">键</param>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOUEvents.UEventsManager.LookUpUEventToVoidDic(System.String)">
+            <summary>
+            UEvent数据在无返回值字典中查询
+            </summary>
+            <param name="key">键</param>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOUEvents.UEventsManager.LookUpUEventToVoidDic``1(System.String,``0)">
+            <summary>
+            UEvent数据在无返回值字典中查询
+            </summary>
+            <typeparam name="T">无返回值委托的参数一类型</typeparam>
+            <param name="key">键</param>
+            <param name="dataa">无返回值委托的参数一</param>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOUEvents.UEventsManager.LookUpUEventToVoidDic``2(System.String,``0,``1)">
+            <summary>
+            UEvent数据在无返回值字典中查询
+            </summary>
+            <typeparam name="T">无返回值委托的参数一类型</typeparam>
+            <typeparam name="Y">无返回值委托的参数二类型</typeparam>
+            <param name="key">键</param>
+            <param name="dataa">无返回值委托的参数一</param>
+            <param name="datab">无返回值委托的参数二</param>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOUEvents.UEventsManager.LookUpUEventToVoidDic``3(System.String,``0,``1,``2)">
+            <summary>
+            UEvent数据在无返回值字典中查询
+            </summary>
+            <typeparam name="T">无返回值委托的参数一类型</typeparam>
+            <typeparam name="Y">无返回值委托的参数二类型</typeparam>
+            <typeparam name="U">无返回值委托的参数三类型</typeparam>
+            <param name="key">键</param>
+            <param name="dataa">无返回值委托的参数一</param>
+            <param name="datab">无返回值委托的参数二</param>
+            <param name="datac">无返回值委托的参数三</param>
+        </member>
+        <member name="M:OLiOYouxi.OSystem.OLiOUEvents.UEventsManager.LookUpUEventToVoidDic``4(System.String,``0,``1,``2,``3)">
+            <summary>
+            UEvent数据在无返回值字典中查询
+            </summary>
+            <typeparam name="T">无返回值委托的参数一类型</typeparam>
+            <typeparam name="Y">无返回值委托的参数二类型</typeparam>
+            <typeparam name="U">无返回值委托的参数三类型</typeparam>
+            <typeparam name="I">无返回值委托的参数四类型</typeparam>
+            <param name="key">键</param>
+            <param name="dataa">无返回值委托的参数一</param>
+            <param name="datab">无返回值委托的参数二</param>
+            <param name="datac">无返回值委托的参数三</param>
+            <param name="datad">无返回值委托的参数四</param>
+        </member>
+        <member name="T:OLiOYouxi.OSystem.OLiOUEvents.UEventsStringDictionary">
+            <summary>
+            给定无参字典
+            </summary>
+        </member>
+        <member name="P:OLiOYouxi.OSystem.OLiOUEvents.UEventsStringDictionary.Instance">
+            <summary>
+            这是单例
+            </summary>
+        </member>
+        <member name="T:OLiOYouxi.OSystem.OLiOUEvents.UEventsStringDictionary`1">
+            <summary>
+            给定泛型单参字典
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:OLiOYouxi.OSystem.OLiOUEvents.UEventsStringDictionary`1.Instance">
+            <summary>
+            这是单例
+            </summary>
+        </member>
+        <member name="T:OLiOYouxi.OSystem.OLiOUEvents.UEventsStringDictionary`2">
+            <summary>
+            给定泛型双参字典
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="Y"></typeparam>
+        </member>
+        <member name="P:OLiOYouxi.OSystem.OLiOUEvents.UEventsStringDictionary`2.Instance">
+            <summary>
+            这是单例
+            </summary>
+        </member>
+        <member name="T:OLiOYouxi.OSystem.OLiOUEvents.UEventsStringDictionary`3">
+            <summary>
+            给定泛型三参字典
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="Y"></typeparam>
+            <typeparam name="U"></typeparam>
+        </member>
+        <member name="P:OLiOYouxi.OSystem.OLiOUEvents.UEventsStringDictionary`3.Instance">
+            <summary>
+            这是单例
+            </summary>
+        </member>
+        <member name="T:OLiOYouxi.OSystem.OLiOUEvents.UEventsStringDictionary`4">
+            <summary>
+            给定泛型四参字典
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="Y"></typeparam>
+            <typeparam name="U"></typeparam>
+            <typeparam name="I"></typeparam>
+        </member>
+        <member name="P:OLiOYouxi.OSystem.OLiOUEvents.UEventsStringDictionary`4.Instance">
+            <summary>
+            这是单例
+            </summary>
+        </member>
+        <member name="T:OLiOYouxi.OSystem.OLiOUEvents.UEventsStringTriggers">
+            <summary>
+            UnityEvents触发器
+            1.可以注册， 若有相同键则覆盖(Register)
+            2.可以调用(Invoke)
+            </summary>
+        </member>
+    </members>
+</doc>

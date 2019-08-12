@@ -1,0 +1,70 @@
+﻿//#pragma kernel SetPixels
+
+//int width;
+
+//int height;
+
+//struct gColor
+//{
+//	float4 color;
+//};
+
+//struct gColorCol
+//{
+//	float4 color;
+//};
+
+//RWStructuredBuffer<gColor> Result;
+//StructuredBuffer<gColorCol> colorCols;
+
+//[numthreads(32, 32, 1)]
+//void CSMain (uint3 id : SV_DispatchThreadID)
+//{
+//	int i = (width * id.y) + id.x;
+
+//	Result[i].color = colorCols[i].color;	//rows[id.y]
+//}
+
+
+//--------------------------------------------------
+#pragma kernel GetPixels
+
+int w;
+
+Texture2D tex;
+
+struct gColorG
+{
+	float4 color;
+};
+
+RWStructuredBuffer<gColorG> ResultG;
+
+[numthreads(8,8,1)]
+void GetPixels (uint3 id : SV_DispatchThreadID)
+{
+	int i = (w * id.y) + id.x;
+	ResultG[i].color = tex[id.xy];	
+
+}
+
+//--------------------------------------------------
+#pragma kernel Apply
+
+int width;
+
+int height;
+
+struct gColorA{
+	float4 color;
+};
+
+StructuredBuffer<gColorA> colors;
+RWTexture2D<float4> ResultA;
+
+[numthreads(32,32,1)]
+void Apply (uint3 id : SV_DispatchThreadID)
+{
+	int i = (width * id.y) + id.x;
+	ResultA[id.xy] = colors[i].color;
+}
