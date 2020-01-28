@@ -142,7 +142,7 @@ namespace OLiOYouxi.OObjects
 
         #region -- Const Data --
         const int totalWidth = 480;
-        const int totalHeight = 320;
+        const int totalHeight = 384;
         const int screenWidth = 960;
         const int screenHeight = 640;
 
